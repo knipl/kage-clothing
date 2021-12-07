@@ -1,13 +1,14 @@
 import "./menu-item.styles.scss"
 
-function MenuItem(props) {
+function MenuItem({title, imageUrl, size}) {
   return (
-    <div className="menu-item">
-          <div className="content">
-            <div className="title">HATS</div>
-            <span className="subtitle">SHOP NOW</span>
-          </div>
-        </div>
+    <div className={`${size} menu-item`}>
+      <div className="background-image" style={{backgroundImage: `url(${imageUrl})`}}></div>
+      <div className="content">
+        <div className="title">{title}</div>
+        <span className="subtitle">SHOP NOW</span>
+      </div>
+    </div>
   )
 }
 
