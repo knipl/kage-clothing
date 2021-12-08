@@ -1,4 +1,5 @@
-function Cart({items, editCart}) {
+import React from "react";
+function Cart({ items, editCart }) {
   return (
     <>
       <div className="profile-item">
@@ -8,7 +9,7 @@ function Cart({items, editCart}) {
         </div>
           
         <div className="cart-input">
-          <span onClick={() => editCart({ id: items.length+1, name: "add" })} className="addBtn">+</span>
+          <span onClick={() => editCart({ id: items.length+1, name: "new Product" })} className="addBtn">+</span>
           <span onClick={() => editCart()}  className="deleteBtn">-</span>
         </div>
       
@@ -17,7 +18,7 @@ function Cart({items, editCart}) {
         return(
           <div className="profile-item sub-item" key={id}>
             <label htmlFor="isTheKingOfTheUniverse">Product name:</label>
-            <span>{ name }</span>
+            <span>{id}</span><span>{ name }</span>
           </div>
         )
       })}
