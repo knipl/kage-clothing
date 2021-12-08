@@ -1,19 +1,25 @@
 import { Component } from "react";
 import "./shop.styles.scss"
 import SHOP_DATA from './shop.data'
+import ShopItem from "../../components/shop-item/shop-item.component";
 
 class Shop extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = { shopData: SHOP_DATA };
   }
   render() {
     return (
-      <>
-        {SHOP_DATA.map(({ title, id, ...otherProps }) => (
-          <p key={id}>{title}</p>
+      <div className="shop-container">
+        {this.state.shopData.map(({ title, id, items }) => (
+          <div>
+            <h2>{title}</h2>
+            {items.map(({ id, ...otherProps }) => (
+              <ShopItem key={id} {...otherProps} />
+            ))}
+          </div>
         ))}
-      </>
+      </div>
     )
   }
 }
