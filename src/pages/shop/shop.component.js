@@ -1,7 +1,7 @@
 import { Component } from "react";
 import "./shop.styles.scss"
 import SHOP_DATA from './shop.data'
-import ShopItem from "../../components/shop-item/shop-item.component";
+import ShopCategory from "../../components/shop-category/shop-category.component";
 
 class Shop extends Component {
   constructor(props) {
@@ -11,13 +11,8 @@ class Shop extends Component {
   render() {
     return (
       <div className="shop-container">
-        {this.state.shopData.map(({ title, id, items }) => (
-          <div>
-            <h2>{title}</h2>
-            {items.map(({ id, ...otherProps }) => (
-              <ShopItem key={id} {...otherProps} />
-            ))}
-          </div>
+        {this.state.shopData.map(({ id, ...otherProps }) => (
+          <ShopCategory key={id} {...otherProps} />
         ))}
       </div>
     )
